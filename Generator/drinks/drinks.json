@@ -7,7 +7,7 @@
     "ingredients": ["Rum", "Mint", "Lime", "Sugar", "Soda"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c1_drink_01"
@@ -20,7 +20,7 @@
     "ingredients": ["Rum", "Lime Juice", "Sugar"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c2_drink_02"
@@ -33,7 +33,7 @@
     "ingredients": ["Tequila", "Lime Juice", "Triple Sec"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c3_drink_03"
@@ -46,7 +46,7 @@
     "ingredients": ["Rum", "Coconut Cream", "Pineapple Juice"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c4_drink_04"
@@ -59,7 +59,7 @@
     "ingredients": ["Rum", "Orange Curacao", "Lime Juice", "Orgeat Syrup"],
     "price": 250,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c5_drink_05"
@@ -72,7 +72,7 @@
     "ingredients": ["Champagne", "Orange Juice"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c6_drink_06"
@@ -85,7 +85,7 @@
     "ingredients": ["Champagne", "Strawberry Puree"],
     "price": 250,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c7_drink_07"
@@ -98,7 +98,7 @@
     "ingredients": ["Vodka", "Espresso", "Coffee Liqueur"],
     "price": 270,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c8_drink_08"
@@ -111,7 +111,7 @@
     "ingredients": ["Aperol", "Prosecco", "Soda"],
     "price": 270,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c9_drink_09"
@@ -124,7 +124,7 @@
     "ingredients": ["Cachaça", "Lime", "Sugar"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c10_drink_10"
@@ -137,7 +137,7 @@
     "ingredients": ["Gin", "Campari", "Sweet Vermouth"],
     "price": 250,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c11_drink_11"
@@ -150,7 +150,7 @@
     "ingredients": ["Vodka", "Tomato Juice", "Spices"],
     "price": 200,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c12_drink_12"
@@ -163,7 +163,7 @@
     "ingredients": ["Tequila", "Orange Juice", "Grenadine"],
     "price": 230,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c13_drink_13"
@@ -176,7 +176,7 @@
     "ingredients": ["Vodka", "Gin", "Rum", "Tequila", "Triple Sec", "Cola"],
     "price": 250,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c14_drink_14"
@@ -189,7 +189,7 @@
     "ingredients": ["Whiskey", "Lemon Juice", "Sugar"],
     "price": 250,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c15_drink_15"
@@ -202,7 +202,7 @@
     "ingredients": ["Rum", "Blue Curacao", "Pineapple Juice"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c16_drink_16"
@@ -215,7 +215,7 @@
     "ingredients": ["Vodka", "Peach Schnapps", "Orange Juice", "Cranberry Juice"],
     "price": 220,
     "food": false,
-    "category": "Classic Cocktails",
+    "category": "classic_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "c17_drink_17"
@@ -228,7 +228,7 @@
     "ingredients": ["Vodka", "Blue Curacao", "Pineapple Juice"],
     "price": 300,
     "food": false,
-    "category": "Signature Cocktails",
+    "category": "signature_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "s1_drink_18"
@@ -241,7 +241,7 @@
     "ingredients": ["Vodka", "Fruit Mix", "Soda"],
     "price": 300,
     "food": false,
-    "category": "Signature Cocktails",
+    "category": "signature_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "s2_drink_19"
@@ -254,7 +254,7 @@
     "ingredients": ["Aperol", "Lemon Juice", "Sugar"],
     "price": 300,
     "food": false,
-    "category": "Signature Cocktails",
+    "category": "signature_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "s3_drink_20"
@@ -267,7 +267,7 @@
     "ingredients": ["Vodka", "Grenadine", "Fruit Juice"],
     "price": 300,
     "food": false,
-    "category": "Signature Cocktails",
+    "category": "signature_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "s4_drink_21"
@@ -280,7 +280,7 @@
     "ingredients": ["Jack Daniels Honey", "Mint", "Sugar"],
     "price": 300,
     "food": false,
-    "category": "Signature Cocktails",
+    "category": "signature_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "s5_drink_22"
@@ -293,7 +293,7 @@
     "ingredients": ["Multiple Liquors", "Fruit Juices"],
     "price": 300,
     "food": false,
-    "category": "Signature Cocktails",
+    "category": "signature_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "s6_drink_23"
@@ -306,7 +306,7 @@
     "ingredients": ["Red Wine", "Fruit", "Brandy"],
     "price": 220,
     "food": false,
-    "category": "Spanish Cocktails",
+    "category": "spanish_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "sp1_drink_24"
@@ -319,7 +319,7 @@
     "ingredients": ["Red Wine", "Fruit", "Brandy"],
     "price": 600,
     "food": false,
-    "category": "Spanish Cocktails",
+    "category": "spanish_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "sp2_drink_25"
@@ -332,7 +332,7 @@
     "ingredients": ["White Wine", "Fruit", "Brandy"],
     "price": 250,
     "food": false,
-    "category": "Spanish Cocktails",
+    "category": "spanish_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "sp3_drink_26"
@@ -345,7 +345,7 @@
     "ingredients": ["White Wine", "Fruit", "Brandy"],
     "price": 600,
     "food": false,
-    "category": "Spanish Cocktails",
+    "category": "spanish_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "sp4_drink_27"
@@ -358,7 +358,7 @@
     "ingredients": ["Red Wine", "Lemon Soda"],
     "price": 250,
     "food": false,
-    "category": "Spanish Cocktails",
+    "category": "spanish_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "sp5_drink_28"
@@ -371,7 +371,7 @@
     "ingredients": ["Coffee", "Licor 43"],
     "price": 200,
     "food": false,
-    "category": "Spanish Cocktails",
+    "category": "spanish_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "sp6_drink_29"
@@ -384,7 +384,7 @@
     "ingredients": ["Gin", "Basil", "Lemon Juice", "Sugar"],
     "price": 280,
     "food": false,
-    "category": "GinRaw Cocktails",
+    "category": "ginraw_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "gr1_drink_30"
@@ -397,7 +397,7 @@
     "ingredients": ["Gin", "Lemon Juice", "Sugar", "Soda"],
     "price": 280,
     "food": false,
-    "category": "GinRaw Cocktails",
+    "category": "ginraw_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "gr2_drink_31"
@@ -410,7 +410,7 @@
     "ingredients": ["Gin", "Fruit Mix", "Soda"],
     "price": 280,
     "food": false,
-    "category": "GinRaw Cocktails",
+    "category": "ginraw_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "gr3_drink_32"
@@ -423,7 +423,7 @@
     "ingredients": ["Gin", "Blueberry Syrup", "Lemon Juice"],
     "price": 280,
     "food": false,
-    "category": "GinRaw Cocktails",
+    "category": "ginraw_cocktails",
     "types": "alcohol",
     "add_on": "",
     "id": "gr4_drink_33"
@@ -436,7 +436,7 @@
     "ingredients": ["Coconut Cream", "Pineapple Juice"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m2_drink_34"
@@ -449,7 +449,7 @@
     "ingredients": ["Mint", "Lime", "Sugar", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m3_drink_35"
@@ -462,7 +462,7 @@
     "ingredients": ["Strawberry", "Mint", "Lime", "Sugar", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m4_drink_36"
@@ -475,7 +475,7 @@
     "ingredients": ["Passionfruit", "Mint", "Lime", "Sugar", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m5_drink_37"
@@ -488,7 +488,7 @@
     "ingredients": ["Mango", "Mint", "Lime", "Sugar", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m6_drink_38"
@@ -501,7 +501,7 @@
     "ingredients": ["Mixed Berries", "Mint", "Lime", "Sugar", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m7_drink_39"
@@ -514,7 +514,7 @@
     "ingredients": ["Fruit Juice", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m8_drink_40"
@@ -527,7 +527,7 @@
     "ingredients": ["Varied Fruits", "Soda"],
     "price": 150,
     "food": false,
-    "category": "Mocktails",
+    "category": "mocktails",
     "types": "non-alcohol",
     "add_on": "",
     "id": "m9_drink_41"
@@ -535,12 +535,12 @@
   {
     "thumbnail": "",
     "photos": [""],
-    "title": "Classic (Gin Tonic)",
+    "title": "Classic (gin_tonic)",
     "description": ["A classic gin and tonic."],
     "ingredients": ["Gin", "Tonic Water"],
     "price": 250,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt1_drink_42"
@@ -553,7 +553,7 @@
     "ingredients": ["Nordes Gin", "Tonic Water"],
     "price": 420,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt2_drink_43"
@@ -566,7 +566,7 @@
     "ingredients": ["GIN RAW", "Tonic Water"],
     "price": 250,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt3_drink_44"
@@ -579,7 +579,7 @@
     "ingredients": ["Roku Gin", "Tonic Water"],
     "price": 350,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt4_drink_45"
@@ -592,7 +592,7 @@
     "ingredients": ["Bulldog Gin", "Tonic Water"],
     "price": 280,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt5_drink_46"
@@ -605,7 +605,7 @@
     "ingredients": ["Bombay Gin", "Tonic Water"],
     "price": 250,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt6_drink_47"
@@ -618,7 +618,7 @@
     "ingredients": ["Beefeater 24 Gin", "Tonic Water"],
     "price": 280,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt7_drink_48"
@@ -631,7 +631,7 @@
     "ingredients": ["Hendricks Gin", "Tonic Water", "Cucumber"],
     "price": 280,
     "food": false,
-    "category": "Gin Tonic",
+    "category": "gin_tonic",
     "types": "alcohol",
     "add_on": "Fever Tree @ 80",
     "id": "gt8_drink_49"
@@ -644,7 +644,7 @@
     "ingredients": ["Vodka"],
     "price": 220,
     "food": false,
-    "category": "Vodka",
+    "category": "vodka",
     "types": "alcohol",
     "add_on": "",
     "id": "v1_drink_50"
@@ -657,7 +657,7 @@
     "ingredients": ["Vodka"],
     "price": 300,
     "food": false,
-    "category": "Vodka",
+    "category": "vodka",
     "types": "alcohol",
     "add_on": "",
     "id": "v2_drink_51"
@@ -670,7 +670,7 @@
     "ingredients": ["Vodka"],
     "price": 250,
     "food": false,
-    "category": "Vodka",
+    "category": "vodka",
     "types": "alcohol",
     "add_on": "",
     "id": "v3_drink_52"
@@ -683,7 +683,7 @@
     "ingredients": ["Vodka"],
     "price": 350,
     "food": false,
-    "category": "Vodka",
+    "category": "vodka",
     "types": "alcohol",
     "add_on": "",
     "id": "v4_drink_53"
@@ -696,7 +696,7 @@
     "ingredients": ["Vodka"],
     "price": 350,
     "food": false,
-    "category": "Vodka",
+    "category": "vodka",
     "types": "alcohol",
     "add_on": "",
     "id": "v5_drink_54"
@@ -709,7 +709,7 @@
     "ingredients": ["Vodka"],
     "price": 250,
     "food": false,
-    "category": "Vodka",
+    "category": "vodka",
     "types": "alcohol",
     "add_on": "",
     "id": "v6_drink_55"
@@ -722,7 +722,7 @@
     "ingredients": ["Dark Rum"],
     "price": 230,
     "food": false,
-    "category": "Rum",
+    "category": "rum",
     "types": "alcohol",
     "add_on": "",
     "id": "r1_drink_56"
@@ -735,7 +735,7 @@
     "ingredients": ["Rum"],
     "price": 410,
     "food": false,
-    "category": "Rum",
+    "category": "rum",
     "types": "alcohol",
     "add_on": "",
     "id": "r2_drink_57"
@@ -748,7 +748,7 @@
     "ingredients": ["Spiced Rum"],
     "price": 250,
     "food": false,
-    "category": "Rum",
+    "category": "rum",
     "types": "alcohol",
     "add_on": "",
     "id": "r3_drink_58"
@@ -761,7 +761,7 @@
     "ingredients": ["Rum"],
     "price": 240,
     "food": false,
-    "category": "Rum",
+    "category": "rum",
     "types": "alcohol",
     "add_on": "",
     "id": "r4_drink_59"
@@ -774,7 +774,7 @@
     "ingredients": ["Rum"],
     "price": 390,
     "food": false,
-    "category": "Rum",
+    "category": "rum",
     "types": "alcohol",
     "add_on": "",
     "id": "r5_drink_60"
@@ -787,7 +787,7 @@
     "ingredients": ["Brandy"],
     "price": 230,
     "food": false,
-    "category": "Brandy",
+    "category": "brandy",
     "types": "alcohol",
     "add_on": "",
     "id": "b1_drink_61"
@@ -800,7 +800,7 @@
     "ingredients": ["Cognac"],
     "price": 250,
     "food": false,
-    "category": "Brandy",
+    "category": "brandy",
     "types": "alcohol",
     "add_on": "",
     "id": "b2_drink_62"
@@ -813,7 +813,7 @@
     "ingredients": ["Vodka", "Fruit Liqueur"],
     "price": 100,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh1_drink_63"
@@ -826,7 +826,7 @@
     "ingredients": ["Tequila"],
     "price": 300,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh2_drink_64"
@@ -839,7 +839,7 @@
     "ingredients": ["Mezcal"],
     "price": 300,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh3_drink_65"
@@ -852,7 +852,7 @@
     "ingredients": ["Herbal Liqueur"],
     "price": 200,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh4_drink_66"
@@ -865,7 +865,7 @@
     "ingredients": ["Coffee Liqueur", "Baileys", "Grand Marnier"],
     "price": 150,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh5_drink_67"
@@ -878,7 +878,7 @@
     "ingredients": ["Jaegermeister", "Energy Drink"],
     "price": 200,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh6_drink_68"
@@ -891,7 +891,7 @@
     "ingredients": ["Sambuca"],
     "price": 150,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh7_drink_69"
@@ -904,7 +904,7 @@
     "ingredients": ["Tequila"],
     "price": 150,
     "food": false,
-    "category": "Shooters",
+    "category": "shooters",
     "types": "alcohol",
     "add_on": "",
     "id": "sh8_drink_70"
@@ -1762,7 +1762,7 @@
     "ingredients": [],
     "price": 90,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc1_drink_136"
@@ -1775,7 +1775,7 @@
     "ingredients": [],
     "price": 90,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc2_drink_137"
@@ -1788,7 +1788,7 @@
     "ingredients": [],
     "price": 100,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc3_drink_138"
@@ -1801,7 +1801,7 @@
     "ingredients": [],
     "price": 100,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc4_drink_139"
@@ -1814,7 +1814,7 @@
     "ingredients": [],
     "price": 170,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc5_drink_140"
@@ -1827,7 +1827,7 @@
     "ingredients": [],
     "price": 140,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc6_drink_141"
@@ -1840,7 +1840,7 @@
     "ingredients": [],
     "price": 180,
     "food": false,
-    "category": "Beers Cans",
+    "category": "beers_cans",
     "types": "alcohol",
     "add_on": "",
     "id": "bc7_drink_142"
@@ -1853,7 +1853,7 @@
     "ingredients": [],
     "price": 80,
     "food": false,
-    "category": "Draft Beers",
+    "category": "draft_beers",
     "types": "alcohol",
     "add_on": "",
     "id": "db1_drink_143"
@@ -1866,7 +1866,7 @@
     "ingredients": [],
     "price": 150,
     "food": false,
-    "category": "Draft Beers",
+    "category": "draft_beers",
     "types": "alcohol",
     "add_on": "",
     "id": "db2_drink_144"
@@ -1879,7 +1879,7 @@
     "ingredients": [],
     "price": 140,
     "food": false,
-    "category": "Draft Beers",
+    "category": "draft_beers",
     "types": "alcohol",
     "add_on": "",
     "id": "db3_drink_145"
@@ -1892,7 +1892,7 @@
     "ingredients": [],
     "price": 250,
     "food": false,
-    "category": "Draft Beers",
+    "category": "draft_beers",
     "types": "alcohol",
     "add_on": "",
     "id": "db4_drink_146"
@@ -1905,7 +1905,7 @@
     "ingredients": [],
     "price": 100,
     "food": false,
-    "category": "Draft Beers",
+    "category": "draft_beers",
     "types": "alcohol",
     "add_on": "",
     "id": "db5_drink_147"
@@ -1918,7 +1918,7 @@
     "ingredients": [],
     "price": 150,
     "food": false,
-    "category": "Draft Beers",
+    "category": "draft_beers",
     "types": "alcohol",
     "add_on": "",
     "id": "db6_drink_148"
@@ -1931,7 +1931,7 @@
     "ingredients": [],
     "price": 200,
     "food": false,
-    "category": "Wine by Glass",
+    "category": "wine_glass",
     "types": "alcohol",
     "add_on": "",
     "id": "wg1_drink_149"
@@ -1944,7 +1944,7 @@
     "ingredients": [],
     "price": 200,
     "food": false,
-    "category": "Wine by Glass",
+    "category": "wine_glass",
     "types": "alcohol",
     "add_on": "",
     "id": "wg2_drink_150"
@@ -1957,7 +1957,7 @@
     "ingredients": [],
     "price": 200,
     "food": false,
-    "category": "Wine by Glass",
+    "category": "wine_glass",
     "types": "alcohol",
     "add_on": "",
     "id": "wg3_drink_151"
@@ -1970,7 +1970,7 @@
     "ingredients": [],
     "price": 500,
     "food": false,
-    "category": "Specials",
+    "category": "specials",
     "types": "alcohol",
     "add_on": "",
     "id": "sp1_drink_152"
@@ -1983,7 +1983,7 @@
     "ingredients": [],
     "price": 550,
     "food": false,
-    "category": "Specials",
+    "category": "specials",
     "types": "alcohol",
     "add_on": "",
     "id": "sp2_drink_153"
@@ -1992,11 +1992,11 @@
     "thumbnail": "",
     "photos": [""],
     "title": "Corona Bucket (5)",
-    "description": ["A bucket of 6 Corona beers."],
+    "description": ["A bucket of 5 Corona beers."],
     "ingredients": [],
     "price": 600,
     "food": false,
-    "category": "Specials",
+    "category": "specials",
     "types": "alcohol",
     "add_on": "",
     "id": "sp4_drink_154"  },
@@ -2008,7 +2008,7 @@
     "ingredients": ["Vodka", "Mixers"],
     "price": 400,
     "food": false,
-    "category": "Specials",
+    "category": "specials",
     "types": "alcohol",
     "add_on": "",
     "id": "sp5_drink_154"
@@ -2021,7 +2021,7 @@
     "ingredients": ["GIN RAW", "Mixers"],
     "price": 400,
     "food": false,
-    "category": "Specials",
+    "category": "specials",
     "types": "alcohol",
     "add_on": "",
     "id": "sp6_drink_155"

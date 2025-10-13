@@ -17,9 +17,21 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => LocaleProvider()),
-        ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(
+          create: (_) {
+            return ThemeProvider();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (_) {
+            return LocaleProvider();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (_) {
+            return HomeProvider();
+          },
+        ),
       ],
       child: EasyLocalization(
         supportedLocales: [
@@ -56,7 +68,6 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           themeMode: themeProvider.themeMode,
-
           debugShowCheckedModeBanner: false,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

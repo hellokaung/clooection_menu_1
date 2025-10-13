@@ -1,4 +1,44 @@
 {
+  "navigation_home": "Home",
+  "navigation_search": "Search",
+  "navigation_cart": "Cart",
+  "navigation_settings": "Settings",
+
+
+  "home_foods": "Foods",
+  "home_drinks": "Drinks",
+  "home_available": "Available",
+  "home_empty_category": "Empty Category",
+  "home_empty_category_note": "We'r preparing something special for this section",
+  "home_refresh_category": "Refresh Category",
+  "home_added_to_cart": "Added to cart",
+  "home_includes": "Includes",
+
+
+  "food_details": "Food Details",
+  "food_vegan": "Vegan",
+  "food_vegetarian": "Vegetarian",
+  "food_seafood": "Seafood",
+  "food_meat": "Meat",
+  "food_gluten_free": "Gluten Free",
+  "food_alcoholic": "Alcoholic",
+  "food_non_alcoholic": "Non-Alcoholic",
+  "food_unknown": "Unknown",
+  "food_detail_additional_views": "Additional Views",
+"food_details_ingredients": "Ingredients",
+"food_detail_custom_add_on": "Custom Add-ons",
+"food_special_instructions": "Special Instructions",
+"food_detail_special_instructions_note": "Please inform us if you have any special dietary requirements",
+"food_add_to_cart": "Add to Cart",
+  "food_detail_added_to_cart": "Added to cart",
+  "food_detail_failed_to_add": "Failed to add to cart",
+  "food_detail_no_broswer": "No browser found",
+  "food_detail_failed_to_open": "Failed to open image search",
+
+
+
+  "switch_language": "Switch Language",
+  "dark_mode": "Dark Mode",
   "settings": "Settings",
   "language": "Language",
   "about": "About This Restaurant",

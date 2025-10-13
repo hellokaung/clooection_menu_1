@@ -6,12 +6,13 @@ import '../models/cart_item.dart';
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
-  double getSubtotal(List<CartItem> cartItems) {
-    return cartItems.fold(0, (sum, item) => sum + item.totalPrice * item.times);
+  int getSub(List<CartItem> cartItems) {
+    return cartItems.length;
   }
 
-  double getTaxes(double subtotal) => subtotal * 0;
-  double getTotal(double subtotal) => subtotal + getTaxes(subtotal);
+  double getTotal(List<CartItem> cartItems) {
+    return cartItems.fold(0, (sum, item) => sum + item.totalPrice * item.times);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +84,7 @@ class CartPage extends StatelessWidget {
               valueListenable: DataIO.cartBox.listenable(),
               builder: (context, Box<Map> box, _) {
                 final cartItems = DataIO.getCartItems();
-                final subtotal = getSubtotal(cartItems);
-                final taxes = getTaxes(subtotal);
-                final total = getTotal(subtotal);
+                final total = getTotal(cartItems);
                 return Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
@@ -102,41 +101,6 @@ class CartPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Subtotal',
-                            style: textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant,
-                            ),
-                          ),
-                          Text(
-                            '\$${subtotal.toStringAsFixed(2)}',
-                            style: textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurface,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Taxes',
-                            style: textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant,
-                            ),
-                          ),
-                          Text(
-                            '\$${taxes.toStringAsFixed(2)}',
-                            style: textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurface,
-                            ),
-                          ),
-                        ],
-                      ),
                       const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -281,7 +245,7 @@ class CartPage extends StatelessWidget {
                 ),
                 if (item.addOns.isNotEmpty)
                   Text(
-                    'Add-ons: ${item.addOns.map((addOn) => '${addOn['name']} (+\$${addOn['price']})').join(', ')}',
+                    'Add-ons: ${item.addOns.map((addOn) => '${addOn['name']} (+฿${addOn['price']})').join(', ')}',
                     style: textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurface,
                     ),
@@ -294,7 +258,7 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                 Text(
-                  '\$${item.totalPrice.toStringAsFixed(2)}',
+                  '฿${item.totalPrice.toStringAsFixed(2)}',
                   style: textTheme.titleMedium?.copyWith(
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.bold,

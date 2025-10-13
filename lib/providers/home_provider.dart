@@ -4,8 +4,14 @@ import '../models/raw_data.dart';
 import '../service/api_service.dart';
 
 class HomeProvider extends ChangeNotifier {
+  late Duration autoPlayDuration;
+  int currentSlideIndex = 0;
   List<Category> foodCategories = [];
   List<Category> drinkCategories = [];
+  List<ListElement> foodsInSelectedCategory = [];
+  String currentCategory = "";
+  List<Slide> slides = [];
+  List<AdBanner> adBanners = [];
   int selectedTab = 0; // 0 = Food, 1 = Drink
   int selectedCategoryIndex = 0;
   bool loading = true;
@@ -13,6 +19,7 @@ class HomeProvider extends ChangeNotifier {
   bool showRestartNotice = false;
 
   HomeProvider() {
+    autoPlayDuration = DataIO.getAutoPlayDuration();
     _init();
   }
 
@@ -21,17 +28,26 @@ class HomeProvider extends ChangeNotifier {
     error = null;
     notifyListeners();
     try {
-      foodCategories = await DataIO.fetchFoodCategories();
-      drinkCategories = await DataIO.fetchDrinkCategories();
+      // Fetch initial data from Hive
+      await Future.wait([
+        DataIO.fetchFoodCategories().then((value) => foodCategories = value),
+        DataIO.fetchDrinkCategories().then((value) => drinkCategories = value),
+        DataIO.fetchAvailableSlides().then((value) => slides = value),
+        DataIO.fetchAdBanners().then((value) => adBanners = value),
+      ]);
 
-      if (foodCategories.isEmpty && drinkCategories.isEmpty) {
+      // Check if data is empty and refresh from API if needed
+      if (foodCategories.isEmpty &&
+          drinkCategories.isEmpty &&
+          slides.isEmpty &&
+          adBanners.isEmpty) {
         await _refreshFromApi();
       } else {
-        loading = false;
-        notifyListeners();
+        // Check for updates in the background
         _updateFromApiAndCheckChanges();
       }
 
+      // Set default category index
       if (foodCategories.isNotEmpty) {
         final firstFood = foodCategories.firstWhere(
           (cat) => cat.food,
@@ -41,6 +57,9 @@ class HomeProvider extends ChangeNotifier {
       } else {
         selectedCategoryIndex = 0;
       }
+
+      // Check restart flag from DataIO
+      showRestartNotice = DataIO.getNeedsRestart();
       loading = false;
       notifyListeners();
     } catch (e) {
@@ -51,37 +70,88 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> _refreshFromApi() async {
-    final apiService = ApiService();
-    var rawdata = await apiService.getRawData();
-    if (rawdata == null) return;
-    await DataIO.saveDataFromApi(rawdata);
-    foodCategories = await DataIO.fetchFoodCategories();
-    drinkCategories = await DataIO.fetchDrinkCategories();
-    loading = false;
+  void setAutoPlayDuration(Duration duration) {
+    autoPlayDuration = duration;
+    DataIO.setAutoPlayDuration(duration);
     notifyListeners();
   }
 
-  Future<void> _updateFromApiAndCheckChanges() async {
-    final apiService = ApiService();
-    final oldFood = List<Category>.from(foodCategories);
-    final oldDrink = List<Category>.from(drinkCategories);
-    var rawdata = await apiService.getRawData();
-    if (rawdata == null) return;
-    await DataIO.saveDataFromApi(rawdata);
-    final newFood = await DataIO.fetchFoodCategories();
-    final newDrink = await DataIO.fetchDrinkCategories();
+  void setCurrentSlideIndex(int index) {
+    currentSlideIndex = index;
+    notifyListeners();
+  }
 
-    if (!_listEquals(oldFood, newFood) || !_listEquals(oldDrink, newDrink)) {
-      showRestartNotice = true;
+  Future<void> _refreshFromApi() async {
+    loading = true;
+    error = null;
+    notifyListeners();
+    try {
+      final apiService = ApiService();
+      final rawdata = await apiService.getRawData();
+      if (rawdata == null) {
+        error = 'Failed to fetch data from API';
+        loading = false;
+        notifyListeners();
+        return;
+      }
+      await DataIO.saveDataFromApi(rawdata);
+      await Future.wait([
+        DataIO.fetchFoodCategories().then((value) => foodCategories = value),
+        DataIO.fetchDrinkCategories().then((value) => drinkCategories = value),
+        DataIO.fetchAvailableSlides().then((value) => slides = value),
+        DataIO.fetchAdBanners().then((value) => adBanners = value),
+      ]);
+      loading = false;
+      notifyListeners();
+    } catch (e) {
+      error = 'Failed to fetch data from API: $e';
+      print(error);
+      loading = false;
       notifyListeners();
     }
   }
 
-  bool _listEquals(List<Category> a, List<Category> b) {
+  Future<void> _updateFromApiAndCheckChanges() async {
+    try {
+      final apiService = ApiService();
+      final oldFood = List<Category>.from(foodCategories);
+      final oldDrink = List<Category>.from(drinkCategories);
+      final oldSlides = List<Slide>.from(slides);
+      final oldAdBanners = List<AdBanner>.from(adBanners);
+      final rawdata = await apiService.getRawData();
+      if (rawdata == null) return;
+
+      await DataIO.saveDataFromApi(rawdata);
+
+      final newFood = await DataIO.fetchFoodCategories();
+      final newDrink = await DataIO.fetchDrinkCategories();
+      final newSlides = await DataIO.fetchAvailableSlides();
+      final newAdBanners = await DataIO.fetchAdBanners();
+
+      // Check if any data has changed
+      if (!_listEquals(oldFood, newFood, (a, b) => a.id == b.id) ||
+          !_listEquals(oldDrink, newDrink, (a, b) => a.id == b.id) ||
+          !_listEquals(oldSlides, newSlides, (a, b) => a.id == b.id) ||
+          !_listEquals(oldAdBanners, newAdBanners, (a, b) => a.id == b.id)) {
+        showRestartNotice = true;
+      }
+
+      // Update local data
+      foodCategories = newFood;
+      drinkCategories = newDrink;
+      slides = newSlides;
+      adBanners = newAdBanners;
+      notifyListeners();
+    } catch (e) {
+      print('Error updating from API: $e');
+    }
+  }
+
+  bool _listEquals<T>(List<T> a, List<T> b, [bool Function(T, T)? equals]) {
     if (a.length != b.length) return false;
+    if (equals == null) return a == b;
     for (int i = 0; i < a.length; i++) {
-      if (a[i].id != b[i].id) return false;
+      if (!equals(a[i], b[i])) return false;
     }
     return true;
   }
@@ -94,11 +164,23 @@ class HomeProvider extends ChangeNotifier {
   void setTab(int index) {
     selectedTab = index;
     selectedCategoryIndex = 0;
+    setCategory(selectedCategoryIndex);
     notifyListeners();
   }
 
   void setCategory(int index) {
-    selectedCategoryIndex = index;
+    if (currentCategory != currentCategories[index].id) {
+      selectedCategoryIndex = index;
+      currentCategory = currentCategories[selectedCategoryIndex].id;
+      setfoodLists();
+      notifyListeners();
+    }
+  }
+
+  void setfoodLists() async {
+    foodsInSelectedCategory = await DataIO.fetchListsByCategory(
+      currentCategory,
+    );
     notifyListeners();
   }
 
@@ -109,17 +191,16 @@ class HomeProvider extends ChangeNotifier {
       ? currentCategories[selectedCategoryIndex].id
       : null;
 
-  /// Clears the restart notice and triggers a full data reload,
-  /// effectively simulating the application restarting with fresh data.
+  List<Slide> get availableSlides => slides;
+
+  Future<AdBanner?> getAdBannerById(String adId) async {
+    return await DataIO.fetchAdBannerById(adId);
+  }
+
   Future<void> clearRestartNotice() async {
-    // 1. Clear the UI flag
     showRestartNotice = false;
-    notifyListeners();
-
-    // 2. Clear the persistent Hive flag (assuming DataIO.clearNeedsRestart() exists)
-    // await DataIO.clearNeedsRestart();
-
-    // 3. Re-initialize the provider to load the newly saved data.
+    await DataIO.clearNeedsRestart();
     await _init();
+    notifyListeners();
   }
 }

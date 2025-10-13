@@ -1,4 +1,43 @@
 {
+  "navigation_home": "หน้าหลัก",
+  "navigation_search": "ค้นหา",
+  "navigation_cart": "ตะกร้า",
+  "navigation_settings": "การตั้งค่า",
+
+
+  "home_foods": "อาหาร",
+  "home_drinks": "เครื่องดื่ม",
+  "home_available": "พร้อมจำหน่าย",
+  "home_empty_category": "หมวดหมู่นี้ว่างเปล่า",
+  "home_empty_category_note": "เรากำลังเตรียมเมนูพิเศษสำหรับส่วนนี้",
+  "home_refresh_category": "รีเฟรชหมวดหมู่",
+  "home_added_to_cart": "เพิ่มลงในตะกร้าแล้ว",
+  "home_includes": "รวม",
+
+
+  "food_details": "รายละเอียดอาหาร",
+  "food_vegan": "วีแกน",
+  "food_vegetarian": "มังสวิรัติ",
+  "food_seafood": "อาหารทะเล",
+  "food_meat": "เนื้อสัตว์",
+  "food_gluten_free": "ไม่มีกลูเตน",
+  "food_alcoholic": "มีแอลกอฮอล์",
+  "food_non_alcoholic": "ไม่มีแอลกอฮอล์",
+  "food_unknown": "ไม่ทราบข้อมูล",
+  "food_detail_additional_views": "มุมมองเพิ่มเติม",
+  "food_details_ingredients": "ส่วนผสม",
+  "food_detail_custom_add_on": "ส่วนเสริมที่กำหนดเอง",
+  "food_special_instructions": "คำแนะนำพิเศษ",
+  "food_detail_special_instructions_note": "โปรดแจ้งให้เราทราบหากคุณมีข้อกำหนดด้านอาหารพิเศษใดๆ",
+  "food_add_to_cart": "เพิ่มลงในตะกร้า",
+  "food_detail_added_to_cart": "เพิ่มลงในตะกร้าแล้ว",
+  "food_detail_failed_to_add": "ไม่สามารถเพิ่มลงในตะกร้าได้",
+  "food_detail_no_broswer": "ไม่พบเบราว์เซอร์",
+  "food_detail_failed_to_open": "ไม่สามารถเปิดการค้นหารูปภาพได้",
+
+
+  "switch_language": "เปลี่ยนภาษา",
+  "dark_mode": "โหมดมืด",
   "settings": "การตั้งค่า",
   "language": "ภาษา",
   "about": "เกี่ยวกับร้านอาหารนี้",

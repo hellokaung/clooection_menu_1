@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomeTabBar extends StatelessWidget {
   final int selectedIndex;
@@ -12,57 +14,110 @@ class HomeTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tabs = ['Food', 'Drink'];
     final theme = Theme.of(context);
+    final tabs = [
+      {'label': "home_foods".tr(), 'icon': Icons.restaurant_menu},
+      {'label': "home_drinks".tr(), 'icon': Icons.local_drink},
+    ];
 
-    // Using Material for a subtle elevated background, creating a segmented control effect.
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Material(
-        elevation: 2, // Slight elevation for a "floating" feel
-        borderRadius: BorderRadius.circular(32),
-        // Use a neutral color for the base of the tab bar (M3 standard)
-        color: theme.colorScheme.surfaceContainerHigh,
-        child: Container(
-          padding: const EdgeInsets.all(
-            4,
-          ), // Inner padding separates tabs from the container edge
-          child: Row(
-            children: List.generate(tabs.length, (index) {
-              final isSelected = selectedIndex == index;
-              return Expanded(
-                child: InkWell(
-                  onTap: () => onTabChanged(index),
-                  // Apply border radius to the InkWell for better visual feedback
-                  borderRadius: BorderRadius.circular(28),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 250),
-                    curve: Curves.easeInOut,
-                    height: 40,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final tabWidth = constraints.maxWidth / tabs.length;
+
+          return Material(
+            elevation: 2,
+            borderRadius: BorderRadius.circular(32),
+            color: theme.colorScheme.surface,
+            child: Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                // 🟦 Smooth sliding background
+                AnimatedPositioned(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOutCubic,
+                  left: selectedIndex == 1
+                      ? tabWidth * selectedIndex - 4
+                      : tabWidth * selectedIndex + 4,
+                  width: tabWidth,
+                  top: 4,
+                  bottom: 4,
+
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
                     decoration: BoxDecoration(
-                      // Active tab uses primary color for high contrast
-                      color: isSelected
-                          ? theme.colorScheme.primary
-                          : Colors.transparent,
+                      color: theme.colorScheme.primary,
                       borderRadius: BorderRadius.circular(28),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      tabs[index],
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        // Text color changes dynamically based on background
-                        color: isSelected
-                            ? theme.colorScheme.onPrimary
-                            : theme.colorScheme.onSurface,
-                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: theme.colorScheme.primary.withOpacity(0.25),
+                          blurRadius: 6,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              );
-            }),
-          ),
-        ),
+
+                // 🧭 Foreground content
+                Row(
+                  children: List.generate(tabs.length, (index) {
+                    final isSelected = selectedIndex == index;
+
+                    return Expanded(
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(28),
+                        onTap: () {
+                          HapticFeedback.selectionClick();
+                          onTabChanged(index);
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 250),
+                          curve: Curves.easeInOut,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 12,
+                          ),
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              AnimatedScale(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeOutBack,
+                                scale: isSelected ? 1.1 : 1.0,
+                                child: Icon(
+                                  tabs[index]['icon'] as IconData,
+                                  size: 22,
+                                  color: isSelected
+                                      ? theme.colorScheme.onPrimary
+                                      : theme.colorScheme.onSurface,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              AnimatedDefaultTextStyle(
+                                duration: const Duration(milliseconds: 300),
+                                style: theme.textTheme.titleMedium!.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: isSelected
+                                      ? theme.colorScheme.onPrimary
+                                      : theme.colorScheme.onSurface,
+                                ),
+                                child: Text(tabs[index]['label'] as String),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

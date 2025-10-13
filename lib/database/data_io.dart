@@ -1,48 +1,222 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/raw_data.dart';
 import '../models/cart_item.dart';
+import '../models/raw_data.dart';
 import '../service/api_service.dart';
+import 'package:intl/intl.dart';
+
+import '../utils/parse_date.dart';
 
 class DataIO {
-  // Use 'settings' box for flags like 'needsRestart'
   static late Box settingsBox;
   static late Box<Map> cartBox;
   static List<CartItem> _cartItemsCache = [];
   static bool _isInitialized = false;
 
   static Future<void> init() async {
-    if (_isInitialized) return;
-    await Hive.initFlutter();
-    settingsBox = await Hive.openBox('settings'); // Initialize settings box
-    cartBox = await Hive.openBox<Map>('cartBox');
-    await _updateCartItemsCache();
-    cartBox.watch().listen((event) {
-      _updateCartItemsCache();
-    });
-    _isInitialized = true;
+    if (_isInitialized) {
+      return;
+    }
+    try {
+      await Hive.initFlutter().timeout(Duration(seconds: 5));
+      settingsBox = await Hive.openBox(
+        'settings',
+      ).timeout(Duration(seconds: 5));
+      cartBox = await Hive.openBox<Map>(
+        'cartBox',
+      ).timeout(Duration(seconds: 5));
+      _isInitialized = true;
+      await _updateCartItemsCache();
+    } catch (e) {
+      rethrow;
+    }
   }
 
-  // --- Restart Logic Methods ---
-
-  /// Sets a flag indicating the app needs to be restarted (e.g., after new data download).
   static Future<void> setNeedsRestart() async {
     if (!_isInitialized) await init();
     await settingsBox.put('needsRestart', true);
   }
 
-  /// Checks if the app needs a restart.
   static bool getNeedsRestart() {
     if (!_isInitialized) return false;
     return settingsBox.get('needsRestart', defaultValue: false) as bool;
   }
 
-  /// Clears the restart flag after the user has acknowledged or performed the restart.
   static Future<void> clearNeedsRestart() async {
     if (!_isInitialized) await init();
     await settingsBox.put('needsRestart', false);
   }
 
-  // --- Data Saving/Fetching Methods ---
+  // Helper method to safely convert dynamic map to Map<String, dynamic>
+  static Map<String, dynamic> _convertToStringMap(dynamic data) {
+    if (data == null) return {};
+    if (data is Map<String, dynamic>) return data;
+    if (data is Map<dynamic, dynamic>) {
+      return data.map((key, value) => MapEntry(key.toString(), value));
+    }
+    return {};
+  }
+
+  // Info methods
+  static Future<void> saveInfo(Info info) async {
+    var box = await Hive.openBox('infoBox');
+    await box.put('info', info.toJson());
+  }
+
+  static Future<Info?> fetchInfo() async {
+    var box = await Hive.openBox('infoBox');
+    final infoData = box.get('info');
+
+    if (infoData == null) {
+      return null;
+    }
+
+    try {
+      final infoMap = _convertToStringMap(infoData);
+      return Info.fromJson(infoMap);
+    } catch (e) {
+      print('Error parsing Info: $e');
+      return null;
+    }
+  }
+
+  static Future<bool> hasInfo() async {
+    var box = await Hive.openBox('infoBox');
+    return box.containsKey('info');
+  }
+
+  // Special methods
+  static Future<void> saveSpecial(Special special) async {
+    var box = await Hive.openBox('specialBox');
+    await box.put('special', special.toJson());
+  }
+
+  static Future<Special?> fetchSpecial() async {
+    var box = await Hive.openBox('specialBox');
+    final specialData = box.get('special');
+
+    if (specialData == null) {
+      return null;
+    }
+
+    try {
+      final specialMap = _convertToStringMap(specialData);
+      return Special.fromJson(specialMap);
+    } catch (e) {
+      print('Error parsing Special: $e');
+      return null;
+    }
+  }
+
+  static Future<bool> hasSpecial() async {
+    var box = await Hive.openBox('specialBox');
+    return box.containsKey('special');
+  }
+
+  static Future<bool> isSpecialActive() async {
+    final special = await fetchSpecial();
+    if (special == null) return false;
+
+    final now = DateTime.now();
+
+    try {
+      // Check if current day matches
+      final currentDay = DateFormat('EEEE').format(now).toLowerCase();
+      final isValidDay =
+          special.day == 'all' ||
+          special.day.toLowerCase().split(',').contains(currentDay);
+
+      // Check if within date range
+      bool isValidDate = true;
+      if (special.end.isNotEmpty) {
+        final endDate = parseDate(special.end);
+        if (endDate != null) {
+          isValidDate = now.isBefore(endDate.add(const Duration(days: 1)));
+        }
+      }
+
+      return isValidDay && isValidDate;
+    } catch (e) {
+      print('Error checking special activity: $e');
+      return false;
+    }
+  }
+
+  // Get special with activity status
+  static Future<Map<String, dynamic>?> fetchSpecialWithStatus() async {
+    final special = await fetchSpecial();
+    if (special == null) return null;
+
+    final isActive = await isSpecialActive();
+
+    return {'special': special, 'isActive': isActive};
+  }
+
+  // Slide methods
+  static Future<void> saveSlides(List<Slide> slides) async {
+    var box = await Hive.openBox('slidesBox');
+    await box.put('slides', slides.map((s) => s.toJson()).toList());
+  }
+
+  static Future<List<Slide>> fetchAvailableSlides() async {
+    var box = await Hive.openBox('slidesBox');
+    final list = box.get('slides', defaultValue: []) as List;
+    final slides = list.map((e) {
+      final slideMap = _convertToStringMap(e);
+      return Slide.fromJson(slideMap);
+    }).toList();
+
+    final now = DateTime.now();
+    final currentDay = DateFormat('EEEE').format(now).toLowerCase();
+
+    return slides.where((slide) {
+      // ✅ Check date range
+      bool isValidDate = true;
+      if (slide.end.isNotEmpty) {
+        final endDate = parseDate(slide.end);
+        if (endDate != null) {
+          isValidDate = now.isBefore(endDate.add(const Duration(days: 1)));
+        } else {
+          isValidDate = false; // invalid or unparsable date
+        }
+      }
+
+      // ✅ Check allowed day(s)
+      bool isValidDay =
+          slide.day == 'all' ||
+          slide.day.toLowerCase().split(',').contains(currentDay);
+
+      return isValidDate && isValidDay;
+    }).toList();
+  }
+
+  static Future<void> saveAdBanners(List<AdBanner> adBanners) async {
+    var box = await Hive.openBox('adBannersBox');
+    await box.put('adBanners', adBanners.map((a) => a.toJson()).toList());
+  }
+
+  static Future<List<AdBanner>> fetchAdBanners() async {
+    var box = await Hive.openBox('adBannersBox');
+    final list = box.get('adBanners', defaultValue: []) as List;
+    return list.map((e) {
+      final adBannerMap = _convertToStringMap(e);
+      return AdBanner.fromJson(adBannerMap);
+    }).toList();
+  }
+
+  static Future<AdBanner?> fetchAdBannerById(String adId) async {
+    var box = await Hive.openBox('adBannersBox');
+    final list = box.get('adBanners', defaultValue: []) as List;
+    final adBanners = list.map((e) {
+      final adBannerMap = _convertToStringMap(e);
+      return AdBanner.fromJson(adBannerMap);
+    }).toList();
+
+    try {
+      return adBanners.firstWhere((ad) => ad.id == adId);
+    } catch (e) {
+      return null;
+    }
+  }
 
   static Future<void> saveCategories(List<Category> categories) async {
     var box = await Hive.openBox('categoriesBox');
@@ -53,7 +227,10 @@ class DataIO {
     var box = await Hive.openBox('categoriesBox');
     final list = box.get('categories', defaultValue: []) as List;
     return list
-        .map((e) => Category.fromJson(Map<String, dynamic>.from(e)))
+        .map((e) {
+          final categoryMap = _convertToStringMap(e);
+          return Category.fromJson(categoryMap);
+        })
         .where((c) => c.food)
         .toList();
   }
@@ -62,7 +239,10 @@ class DataIO {
     var box = await Hive.openBox('categoriesBox');
     final list = box.get('categories', defaultValue: []) as List;
     return list
-        .map((e) => Category.fromJson(Map<String, dynamic>.from(e)))
+        .map((e) {
+          final categoryMap = _convertToStringMap(e);
+          return Category.fromJson(categoryMap);
+        })
         .where((c) => !c.food)
         .toList();
   }
@@ -78,8 +258,11 @@ class DataIO {
     var box = await Hive.openBox('listsBox');
     final list = box.get('lists', defaultValue: []) as List;
     return list
-        .map((e) => ListElement.fromJson(Map<String, dynamic>.from(e)))
-        .where((l) => l.category == categoryId)
+        .map((e) {
+          final listMap = _convertToStringMap(e);
+          return ListElement.fromJson(listMap);
+        })
+        .where((l) => (l.category).contains(categoryId))
         .toList();
   }
 
@@ -92,16 +275,22 @@ class DataIO {
     var box = await Hive.openBox('addOnsBox');
     final list = box.get('addOns', defaultValue: []) as List;
     return list
-        .map((e) => AddOn.fromJson(Map<String, dynamic>.from(e)))
+        .map((e) {
+          final addOnMap = _convertToStringMap(e);
+          return AddOn.fromJson(addOnMap);
+        })
         .where((l) => type == null || l.type == type)
         .toList();
   }
 
   static Future<void> saveDataFromApi(RawData data) async {
+    await saveInfo(data.info);
+    await saveSpecial(data.special);
+    await saveSlides(data.slide);
+    await saveAdBanners(data.adBanner);
     await saveCategories(data.categories);
     await saveLists(data.lists);
     await saveAddOns(data.addOn);
-    // CRITICAL FIX: Set the restart flag after saving new core data
     await setNeedsRestart();
   }
 
@@ -113,6 +302,26 @@ class DataIO {
     await saveDataFromApi(rawdata);
   }
 
+  // Check if we have any data saved
+  static Future<bool> hasData() async {
+    return await hasInfo() ||
+        await hasSpecial() ||
+        await _hasSlides() ||
+        await _hasCategories();
+  }
+
+  static Future<bool> _hasSlides() async {
+    var box = await Hive.openBox('slidesBox');
+    final list = box.get('slides', defaultValue: []) as List;
+    return list.isNotEmpty;
+  }
+
+  static Future<bool> _hasCategories() async {
+    var box = await Hive.openBox('categoriesBox');
+    final list = box.get('categories', defaultValue: []) as List;
+    return list.isNotEmpty;
+  }
+
   static Future<List<ListElement>> searchLists({
     String? type,
     String? query,
@@ -121,7 +330,10 @@ class DataIO {
     final list = box.get('lists', defaultValue: []) as List;
     final lowerQuery = query?.toLowerCase() ?? '';
     return list
-        .map((e) => ListElement.fromJson(Map<String, dynamic>.from(e)))
+        .map((e) {
+          final listMap = _convertToStringMap(e);
+          return ListElement.fromJson(listMap);
+        })
         .where((l) {
           final matchesType = type == null || l.types == type;
           final matchesQuery =
@@ -143,9 +355,10 @@ class DataIO {
     var listBox = await Hive.openBox('listsBox');
     final favs = favBox.get('favs', defaultValue: <String>[]) as List;
     final list = listBox.get('lists', defaultValue: []) as List;
-    final allLists = list
-        .map((e) => ListElement.fromJson(Map<String, dynamic>.from(e)))
-        .toList();
+    final allLists = list.map((e) {
+      final listMap = _convertToStringMap(e);
+      return ListElement.fromJson(listMap);
+    }).toList();
     return allLists.where((l) => favs.contains(l.id)).toList();
   }
 
@@ -176,17 +389,18 @@ class DataIO {
       init();
     }
     _cartItemsCache = cartBox.values
-        .map((e) => CartItem.fromJson(Map<String, dynamic>.from(e)))
+        .map((e) {
+          final cartMap = _convertToStringMap(e);
+          return CartItem.fromJson(cartMap);
+        })
         .toList()
-        .toSet() // Remove duplicates based on object equality
+        .toSet()
         .toList();
   }
 
-  // ... (Other methods like saveCategories, fetchFoodCategories, etc., remain unchanged)
-
   static Future<void> addToCart(CartItem item) async {
     if (!_isInitialized) {
-      init();
+      await init();
     }
     final key = '${item.id}${item.note}';
     final existingItem = _cartItemsCache.firstWhere(
@@ -219,7 +433,7 @@ class DataIO {
       await cartBox.put(key, item.toJson());
       _cartItemsCache.add(item);
     }
-    await _updateCartItemsCache(); // Ensure cache is refreshed
+    await _updateCartItemsCache();
   }
 
   static List<CartItem> getCartItems() {
@@ -235,7 +449,7 @@ class DataIO {
     int newTimes,
   ) async {
     if (!_isInitialized) {
-      init();
+      await init();
     }
     final key = id + note;
     final item = _cartItemsCache.firstWhere(
@@ -271,7 +485,19 @@ class DataIO {
             .map((e) => e.id == id && e.note == note ? updatedItem : e)
             .toList();
       }
-      await _updateCartItemsCache(); // Refresh cache after update
+      await _updateCartItemsCache();
     }
+  }
+
+  static Future<void> setAutoPlayDuration(Duration duration) async {
+    if (!_isInitialized) await init();
+    await settingsBox.put('autoPlayDuration', duration.inSeconds);
+  }
+
+  static Duration getAutoPlayDuration() {
+    if (!_isInitialized) return const Duration(seconds: 5);
+    return Duration(
+      seconds: settingsBox.get('autoPlayDuration', defaultValue: 5),
+    );
   }
 }

@@ -28,6 +28,9 @@ class _SearchPageState extends State {
     {'label': 'Vegetarian', 'type': "vegetarian"},
     {'label': 'Meat', 'type': "meat"},
     {'label': 'Seafood', 'type': "seafood"},
+    {'label': 'Glutten Free', 'type': "gluttenfree"},
+    {'label': 'Alchol', 'type': "alcohol"},
+    {'label': 'Non Alchol', 'type': "nonalcohol"},
   ];
   @override
   void initState() {
@@ -319,11 +322,14 @@ class _SearchPageState extends State {
     final buttonIconColor = myTheme.colorScheme.onSecondaryContainer;
 
     final Map typeColors = {
-      'All': isDark ? Colors.yellow[300]! : Colors.yellow[700]!,
-      'Vegan': isDark ? Colors.green[300]! : Colors.green[700]!,
-      'Vegetarian': isDark ? Colors.lightGreen[300]! : Colors.lightGreen[700]!,
-      'Meat': isDark ? Colors.red[300]! : Colors.red[700]!,
-      'Seafood': isDark ? Colors.blue[300]! : Colors.blue[700]!,
+      '': isDark ? Colors.yellow[300]! : Colors.yellow[700]!,
+      'vegan': isDark ? Colors.green[300]! : Colors.green[700]!,
+      'vegetarian': isDark ? Colors.lightGreen[300]! : Colors.lightGreen[700]!,
+      'meat': isDark ? Colors.red[300]! : Colors.red[700]!,
+      'seafood': isDark ? Colors.blue[300]! : Colors.blue[700]!,
+      'gluttenfree': isDark ? Colors.orange[300]! : Colors.orange[700]!,
+      'alcohol': isDark ? Colors.lime[300]! : Colors.lime[700]!,
+      'nonalcohol': isDark ? Colors.cyanAccent[200]! : Colors.cyanAccent[700]!,
     };
     return Scaffold(
       body: SafeArea(
@@ -517,7 +523,7 @@ class _SearchPageState extends State {
         children: List.generate(types.length, (i) {
           final cat = types[i];
           final bool selected = i == selectedCategory;
-          final color = typeColors[cat['label']]!;
+          final color = typeColors[cat['type']]!;
           return Padding(
             padding: const EdgeInsets.only(right: 8),
             child: ChoiceChip(
@@ -558,6 +564,13 @@ class _SearchPageState extends State {
 
   Widget _buildFoodCard(ListElement food) {
     final theme = Theme.of(context);
+    String desc;
+    try {
+      desc = food.description[LocaleUtils.getCurrentLanguageIndex()];
+    } catch (e) {
+      desc = food.description[0];
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Card(
@@ -618,9 +631,7 @@ class _SearchPageState extends State {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            food.description.isNotEmpty
-                                ? food.description[LocaleUtils.getCurrentLanguageIndex()]
-                                : 'No description available in this language.',
+                            desc,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.onSurface.withOpacity(
                                 0.7,

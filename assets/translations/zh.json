@@ -1,7 +1,46 @@
 {
+  "navigation_home": "首页",
+  "navigation_search": "搜索",
+  "navigation_cart": "购物车",
+  "navigation_settings": "设置",
+
+
+  "home_foods": "食物",
+  "home_drinks": "饮品",
+  "home_available": "有售",
+  "home_empty_category": "空分类",
+  "home_empty_category_note": "我们正在为本栏目准备特别内容",
+  "home_refresh_category": "刷新分类",
+  "home_added_to_cart": "已添加至购物车",
+  "home_includes": "包含",
+
+
+  "food_details": "食物详情",
+  "food_vegan": "纯素食",
+  "food_vegetarian": "素食",
+  "food_seafood": "海鲜",
+  "food_meat": "肉类",
+  "food_gluten_free": "无麸质",
+  "food_alcoholic": "含酒精",
+  "food_non_alcoholic": "不含酒精",
+  "food_unknown": "未知",
+  "food_detail_additional_views": "附加视图",
+  "food_details_ingredients": "配料",
+  "food_detail_custom_add_on": "自定义附加选项",
+  "food_special_instructions": "特别说明",
+  "food_detail_special_instructions_note": "如果您有任何特殊的饮食要求，请告知我们",
+  "food_add_to_cart": "加入购物车",
+  "food_detail_added_to_cart": "已添加至购物车",
+  "food_detail_failed_to_add": "添加至购物车失败",
+  "food_detail_no_broswer": "未找到浏览器",
+  "food_detail_failed_to_open": "打开图片搜索失败",
+
+
+  "switch_language": "切换语言",
+  "dark_mode": "深色模式",
   "settings": "设置",
   "language": "语言",
-  "about": "关于这家餐厅",
-  "darkMode": "暗黑模式",
+  "about": "关于本餐厅",
+  "darkMode": "深色模式",
   "searchSomething": "搜索您想要的东西"
 }

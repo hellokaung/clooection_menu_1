@@ -1,7 +1,46 @@
 {
+  "navigation_home": "Главная",
+  "navigation_search": "Поиск",
+  "navigation_cart": "Корзина",
+  "navigation_settings": "Настройки",
+
+
+  "home_foods": "Блюда",
+  "home_drinks": "Напитки",
+  "home_available": "В наличии",
+  "home_empty_category": "Пустая категория",
+  "home_empty_category_note": "Мы готовим кое-что особенное для этого раздела",
+  "home_refresh_category": "Обновить категорию",
+  "home_added_to_cart": "Добавлено в корзину",
+  "home_includes": "Включает",
+
+
+  "food_details": "Подробнее о блюде",
+  "food_vegan": "Веганское",
+  "food_vegetarian": "Вегетарианское",
+  "food_seafood": "Морепродукты",
+  "food_meat": "Мясо",
+  "food_gluten_free": "Без глютена",
+  "food_alcoholic": "Алкогольное",
+  "food_non_alcoholic": "Безалкогольное",
+  "food_unknown": "Неизвестно",
+  "food_detail_additional_views": "Дополнительные виды",
+  "food_details_ingredients": "Ингредиенты",
+  "food_detail_custom_add_on": "Пользовательские дополнения",
+  "food_special_instructions": "Особые инструкции",
+  "food_detail_special_instructions_note": "Пожалуйста, сообщите нам, если у вас есть особые диетические требования",
+  "food_add_to_cart": "Добавить в корзину",
+  "food_detail_added_to_cart": "Добавлено в корзину",
+  "food_detail_failed_to_add": "Не удалось добавить в корзину",
+  "food_detail_no_broswer": "Браузер не найден",
+  "food_detail_failed_to_open": "Не удалось открыть поиск изображений",
+
+
+  "switch_language": "Сменить язык",
+  "dark_mode": "Темный режим",
   "settings": "Настройки",
   "language": "Язык",
-  "about": "О ресторане",
+  "about": "Об этом ресторане",
   "darkMode": "Темный режим",
-  "searchSomething": "Найдите то, что хотите"
+  "searchSomething": "Ищите то, что вы хотите"
 }

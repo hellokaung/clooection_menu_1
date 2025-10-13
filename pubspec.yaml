@@ -50,6 +50,11 @@ dependencies:
   photo_view: ^0.15.0
   easy_localization: ^3.0.1
   smooth_page_indicator: ^1.2.1
+  intl: ^0.20.2
+  cached_network_image: ^3.4.1
+  waterfall_flow: ^3.1.1
+  flutter_sticky_header: ^0.8.0
+  gif_view: ^1.0.3
 
 dev_dependencies:
   flutter_test:

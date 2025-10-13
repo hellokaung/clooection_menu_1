@@ -1,7 +1,46 @@
 {
-  "settings": "Configuraciones",
+  "navigation_home": "Inicio",
+  "navigation_search": "Buscar",
+  "navigation_cart": "Cesta",
+  "navigation_settings": "Configuración",
+
+
+  "home_foods": "Comidas",
+  "home_drinks": "Bebidas",
+  "home_available": "Disponible",
+  "home_empty_category": "Categoría Vacía",
+  "home_empty_category_note": "Estamos preparando algo especial para esta sección",
+  "home_refresh_category": "Actualizar Categoría",
+  "home_added_to_cart": "Añadido a la cesta",
+  "home_includes": "Incluye",
+
+
+  "food_details": "Detalles de la Comida",
+  "food_vegan": "Vegano",
+  "food_vegetarian": "Vegetariano",
+  "food_seafood": "Marisco",
+  "food_meat": "Carne",
+  "food_gluten_free": "Sin Gluten",
+  "food_alcoholic": "Alcohólico",
+  "food_non_alcoholic": "Sin Alcohol",
+  "food_unknown": "Desconocido",
+  "food_detail_additional_views": "Vistas Adicionales",
+  "food_details_ingredients": "Ingredientes",
+  "food_detail_custom_add_on": "Extras Personalizados",
+  "food_special_instructions": "Instrucciones Especiales",
+  "food_detail_special_instructions_note": "Por favor, infórmenos si tiene algún requisito dietético especial",
+  "food_add_to_cart": "Añadir a la Cesta",
+  "food_detail_added_to_cart": "Añadido a la cesta",
+  "food_detail_failed_to_add": "Fallo al añadir a la cesta",
+  "food_detail_no_broswer": "No se encontró navegador",
+  "food_detail_failed_to_open": "Fallo al abrir la búsqueda de imágenes",
+
+
+  "switch_language": "Cambiar Idioma",
+  "dark_mode": "Modo Oscuro",
+  "settings": "Configuración",
   "language": "Idioma",
-  "about": "Acerca de este restaurante",
-  "darkMode": "Modo oscuro",
+  "about": "Acerca de Este Restaurante",
+  "darkMode": "Modo Oscuro",
   "searchSomething": "Busca algo que quieras"
 }

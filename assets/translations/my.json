@@ -1,7 +1,46 @@
 {
+  "navigation_home": "မူလစာမျက်နှာ",
+  "navigation_search": "ရှာဖွေရန်",
+  "navigation_cart": "စျေးဝယ်ခြင်းတောင်း",
+  "navigation_settings": "ဆက်တင်များ",
+
+
+  "home_foods": "အစားအစာများ",
+  "home_drinks": "အချိုရည်များ",
+  "home_available": "ရရှိနိုင်သည်",
+  "home_empty_category": "ဗလာဖြစ်သော အမျိုးအစား",
+  "home_empty_category_note": "ဤအပိုင်းအတွက် အထူးအစီအစဉ်တစ်ခု ပြင်ဆင်နေပါသည်",
+  "home_refresh_category": "အမျိုးအစား အသစ်ပြန်တင်ရန်",
+  "home_added_to_cart": "စျေးဝယ်ခြင်းတောင်းထဲသို့ ထည့်ပြီးပါပြီ",
+  "home_includes": "ပါဝင်သည်",
+
+
+  "food_details": "အစားအစာအသေးစိတ်",
+  "food_vegan": "သက်သက်လွတ် (အသားနို့ဥမပါ)",
+  "food_vegetarian": "သက်သက်လွတ် (အသားမပါ)",
+  "food_seafood": "ပင်လယ်စာ",
+  "food_meat": "အသား",
+  "food_gluten_free": "ဂလူတင်မပါ",
+  "food_alcoholic": "အရက်ပါဝင်သော",
+  "food_non_alcoholic": "အရက်မပါဝင်သော",
+  "food_unknown": "မသိရှိရသေးပါ",
+  "food_detail_additional_views": "အပိုကြည့်ရှုမှုများ",
+  "food_details_ingredients": "ပါဝင်ပစ္စည်းများ",
+  "food_detail_custom_add_on": "စိတ်ကြိုက်ထပ်ပေါင်းပစ္စည်းများ",
+  "food_special_instructions": "အထူးညွှန်ကြားချက်များ",
+  "food_detail_special_instructions_note": "သင့်တွင် အထူးအစားအသောက်လိုအပ်ချက်များရှိပါက ကျွန်ုပ်တို့အား အသိပေးပါ",
+  "food_add_to_cart": "ထည့်ရန်",
+  "food_detail_added_to_cart": "စျေးဝယ်ခြင်းတောင်းထဲသို့ ထည့်ပြီးပါပြီ",
+  "food_detail_failed_to_add": "စျေးဝယ်ခြင်းတောင်းထဲသို့ ထည့်ရန် မအောင်မြင်ပါ",
+  "food_detail_no_broswer": "ဘရောက်ဆာ ရှာမတွေ့ပါ",
+  "food_detail_failed_to_open": "ပုံရှာဖွေမှုကို ဖွင့်ရန် မအောင်မြင်ပါ",
+
+
+  "switch_language": "ဘာသာစကားပြောင်းရန်",
+  "dark_mode": "ညဘက်ပုံစံ",
   "settings": "ဆက်တင်များ",
   "language": "ဘာသာစကား",
   "about": "ဤစားသောက်ဆိုင်အကြောင်း",
-  "darkMode": "မှောင်ခေါင်းမုဒ်",
-  "searchSomething": "သင်လိုအပ်သောအရာကို ရှာပါ"
+  "darkMode": "ညဘက်ပုံစံ",
+  "searchSomething": "သင်လိုချင်သည့်အရာတစ်ခုခုကို ရှာဖွေပါ"
 }

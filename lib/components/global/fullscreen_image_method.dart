@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:shimmer/shimmer.dart';
 
-void showFullScreenImage(String imageUrl, String foodId, BuildContext context) {
+void showFullScreenImage(String imageUrl, BuildContext context) {
   Navigator.push(
     context,
     PageRouteBuilder(

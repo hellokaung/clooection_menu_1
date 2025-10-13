@@ -1,7 +1,46 @@
 {
+  "navigation_home": "Startseite",
+  "navigation_search": "Suchen",
+  "navigation_cart": "Warenkorb",
+  "navigation_settings": "Einstellungen",
+
+
+  "home_foods": "Speisen",
+  "home_drinks": "Getränke",
+  "home_available": "Verfügbar",
+  "home_empty_category": "Leere Kategorie",
+  "home_empty_category_note": "Wir bereiten etwas Besonderes für diesen Bereich vor",
+  "home_refresh_category": "Kategorie aktualisieren",
+  "home_added_to_cart": "Zum Warenkorb hinzugefügt",
+  "home_includes": "Beinhaltet",
+
+
+  "food_details": "Details zur Speise",
+  "food_vegan": "Vegan",
+  "food_vegetarian": "Vegetarisch",
+  "food_seafood": "Meeresfrüchte",
+  "food_meat": "Fleisch",
+  "food_gluten_free": "Glutenfrei",
+  "food_alcoholic": "Alkoholhaltig",
+  "food_non_alcoholic": "Alkoholfrei",
+  "food_unknown": "Unbekannt",
+  "food_detail_additional_views": "Zusätzliche Ansichten",
+  "food_details_ingredients": "Zutaten",
+  "food_detail_custom_add_on": "Individuelle Extras",
+  "food_special_instructions": "Spezielle Anweisungen",
+  "food_detail_special_instructions_note": "Bitte informieren Sie uns, falls Sie spezielle Ernährungsanforderungen haben",
+  "food_add_to_cart": "Zum Warenkorb hinzufügen",
+  "food_detail_added_to_cart": "Zum Warenkorb hinzugefügt",
+  "food_detail_failed_to_add": "Hinzufügen zum Warenkorb fehlgeschlagen",
+  "food_detail_no_broswer": "Kein Browser gefunden",
+  "food_detail_failed_to_open": "Öffnen der Bildsuche fehlgeschlagen",
+
+
+  "switch_language": "Sprache wechseln",
+  "dark_mode": "Dunkelmodus",
   "settings": "Einstellungen",
   "language": "Sprache",
   "about": "Über dieses Restaurant",
-  "darkMode": "Dunkler Modus",
-  "searchSomething": "Suchen Sie etwas, das Sie wollen"
+  "darkMode": "Dunkelmodus",
+  "searchSomething": "Suchen Sie etwas, das Sie möchten"
 }

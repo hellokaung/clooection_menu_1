@@ -1,7 +1,46 @@
 {
+  "navigation_home": "בית",
+  "navigation_search": "חיפוש",
+  "navigation_cart": "עגלה",
+  "navigation_settings": "הגדרות",
+
+
+  "home_foods": "מזונות",
+  "home_drinks": "משקאות",
+  "home_available": "זמין",
+  "home_empty_category": "קטגוריה ריקה",
+  "home_empty_category_note": "אנחנו מכינים משהו מיוחד עבור חלק זה",
+  "home_refresh_category": "רענן קטגוריה",
+  "home_added_to_cart": "נוסף לעגלה",
+  "home_includes": "כולל",
+
+
+  "food_details": "פרטי מזון",
+  "food_vegan": "טבעוני",
+  "food_vegetarian": "צמחוני",
+  "food_seafood": "פירות ים",
+  "food_meat": "בשר",
+  "food_gluten_free": "ללא גלוטן",
+  "food_alcoholic": "אלכוהולי",
+  "food_non_alcoholic": "לא אלכוהולי",
+  "food_unknown": "לא ידוע",
+  "food_detail_additional_views": "צפיות נוספות",
+  "food_details_ingredients": "מרכיבים",
+  "food_detail_custom_add_on": "תוספות מותאמות אישית",
+  "food_special_instructions": "הוראות מיוחדות",
+  "food_detail_special_instructions_note": "אנא יידע אותנו אם יש לך דרישות תזונה מיוחדות כלשהן",
+  "food_add_to_cart": "הוסף לעגלה",
+  "food_detail_added_to_cart": "נוסף לעגלה",
+  "food_detail_failed_to_add": "הוספה לעגלה נכשלה",
+  "food_detail_no_broswer": "לא נמצא דפדפן",
+  "food_detail_failed_to_open": "פתיחת חיפוש תמונה נכשלה",
+
+
+  "switch_language": "החלף שפה",
+  "dark_mode": "מצב כהה",
   "settings": "הגדרות",
   "language": "שפה",
   "about": "אודות המסעדה הזו",
   "darkMode": "מצב כהה",
-  "searchSomething": "חפש משהו שתרצה"
+  "searchSomething": "חפש משהו שאתה רוצה"
 }
